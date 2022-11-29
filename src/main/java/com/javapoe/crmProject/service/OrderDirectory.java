@@ -34,5 +34,13 @@ public class OrderDirectory {
 		}
 	}
 	
+	public boolean deleteOrder(Long id) {
+		if(orderRepository.existsById(id)) {
+			orderRepository.deleteById(id);
+			return true;
+		}
+		return false;
+	}
+	
 	
 }
