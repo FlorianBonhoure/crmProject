@@ -42,5 +42,17 @@ public class OrderDirectory {
 		return false;
 	}
 	
+	public boolean updateOrder(Order order) {
+		Long clientId = order.getClient().getId();
+		Optional<Client> optionalClient = clientRepository.findById(clientId);
+		if(orderRepository.existsById(order.getId()) && optionalClient.isPresent()) {
+			Client client = optionalClient.get();
+			order.setClient(client);
+			orderRepository.save(order);
+			return true;
+		}
+		return false;
+	}
+	
 	
 }
