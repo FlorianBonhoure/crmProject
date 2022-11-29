@@ -17,10 +17,8 @@ public class Order {
 	private String typePresta;
 	private String designation;
 	private int nbDays;
-	private double unitPrice;
+	private float unitPrice;
 	private boolean state;
-	private double totalExcludeTaxe;
-	private double totalWithTaxe;
 	
 	@ManyToOne
 	private Client client;
@@ -29,15 +27,12 @@ public class Order {
 		
 	}
 	
-	public Order(String typePresta, String designation, int nbDays, double unitPrice, boolean state,
-			double totalExcludeTaxe, double totalWithTaxe, Client client) {
+	public Order(String typePresta, String designation, int nbDays, float unitPrice, boolean state, Client client) {
 		this.typePresta = typePresta;
 		this.designation = designation;
 		this.nbDays = nbDays;
 		this.unitPrice = unitPrice;
 		this.state = state;
-		this.totalExcludeTaxe = totalExcludeTaxe;
-		this.totalWithTaxe = totalWithTaxe;
 		this.client = client;
 	}
 
@@ -73,11 +68,11 @@ public class Order {
 		this.nbDays = nbDays;
 	}
 
-	public double getUnitPrice() {
+	public Float getUnitPrice() {
 		return unitPrice;
 	}
 
-	public void setUnitPrice(double unitPrice) {
+	public void setUnitPrice(Float unitPrice) {
 		this.unitPrice = unitPrice;
 	}
 
@@ -89,21 +84,6 @@ public class Order {
 		this.state = state;
 	}
 
-	public double getTotalExcludeTaxe() {
-		return totalExcludeTaxe;
-	}
-
-	public void setTotalExcludeTaxe(double totalExcludeTaxe) {
-		this.totalExcludeTaxe = totalExcludeTaxe;
-	}
-
-	public double getTotalWithTaxe() {
-		return totalWithTaxe;
-	}
-
-	public void setTotalWithTaxe(double totalWithTaxe) {
-		this.totalWithTaxe = totalWithTaxe;
-	}
 
 	public Client getClient() {
 		return client;
@@ -116,8 +96,7 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", typePresta=" + typePresta + ", designation=" + designation + ", nbDays=" + nbDays
-				+ ", unitPrice=" + unitPrice + ", state=" + state + ", totalExcludeTaxe=" + totalExcludeTaxe
-				+ ", totalWithTaxe=" + totalWithTaxe + ", client=" + client + "]";
+				+ ", unitPrice=" + unitPrice + ", state=" + state + ", client=" + client + "]";
 	}
 	
 	

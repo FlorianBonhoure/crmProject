@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javapoe.crmProject.model.Order;
@@ -18,5 +20,10 @@ public class OrderController {
 	@GetMapping("orders")
 	public List<Order> getAllOrders(){
 		return orderDirectory.getAllOrders();
+	}
+	
+	@PostMapping("orders")
+	public void addOrder(@RequestBody Order order) {
+		orderDirectory.addOrder(order);
 	}
 }
