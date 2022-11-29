@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Order {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	private String typePresta;
 	private String designation;
@@ -41,11 +41,11 @@ public class Order {
 		this.client = client;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

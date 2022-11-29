@@ -20,4 +20,12 @@ public class ClientDirectory {
 	public void addClient(Client client) {
 		clientRepository.save(client);
 	}
+	
+	public boolean deleteClient(Long id) {
+		if(clientRepository.existsById(id)) {
+			clientRepository.deleteById(id);
+			return true;
+		}
+		return false;
+	}
 }
