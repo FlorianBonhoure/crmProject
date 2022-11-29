@@ -16,4 +16,8 @@ public class ClientDirectory {
 	public List<Client> getAllClients(){
 		return clientRepository.findAll();
 	}
+	
+	public void addClient(Client client) {
+		clientRepository.save(client);
+	}
 }
