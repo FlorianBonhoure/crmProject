@@ -28,4 +28,12 @@ public class ClientDirectory {
 		}
 		return false;
 	}
+	
+	public boolean updateClient(Client client) {
+		if(clientRepository.existsById(client.getId())) {
+			clientRepository.save(client);
+			return true;
+		} 
+		return false;
+	}
 }
