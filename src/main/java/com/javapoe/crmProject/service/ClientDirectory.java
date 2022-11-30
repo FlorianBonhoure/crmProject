@@ -1,6 +1,7 @@
 package com.javapoe.crmProject.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,10 @@ public class ClientDirectory {
 	
 	public List<Client> getAllClients(){
 		return clientRepository.findAll();
+	}
+	
+	public Optional<Client> getOneClient(Long id) {
+		return clientRepository.findById(id);
 	}
 	
 	public void addClient(Client client) {

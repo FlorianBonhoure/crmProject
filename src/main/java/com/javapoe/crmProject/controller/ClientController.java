@@ -1,6 +1,7 @@
 package com.javapoe.crmProject.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,16 @@ public class ClientController {
 	@GetMapping("clients")
 	public List<Client> getAllClients(){
 		return clientDirectory.getAllClients();
+	}
+	
+	@GetMapping("clients/{id}")
+	public ResponseEntity<Client> getOneClient(@PathVariable Long id) {
+		Optional<Client> optionalClient = clientDirectory.getOneClient(id);
+		if(optionalClient.isPresent()) {
+			return ResponseEntity.ok(optionalClient.get());
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 	
 	@PostMapping("clients")
