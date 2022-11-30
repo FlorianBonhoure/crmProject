@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Clients</title>
+	</head>
+	<body>
+		<h1>Liste des clients</h1>
+		<p th:if="${clients.size() == 0}"></p>
+		<table th:if="${clients.size() != 0}">
+			<tr>
+				<th>Entreprise</th>
+				<th>Nom</th>
+				<th>e-mail</th>
+				<th>Téléphone</th>
+				<th>Adresse</th>
+				<th>Pays</th>
+				<th>Etat</th>
+			</tr>
+			<tr th:each="client : ${clients}">
+				<td th:text="${client.getCompanyName()}"></td>
+				<td th:text="${client.getFirstName()+' '+client.getLastName()}"></td>
+				<td th:text="${client.getEmail()}"></td>
+				<td th:text="${client.getPhone()}"></td>
+				<td th:text="${client.getAddress()}"></td>
+				<td th:text="${client.getCountry()}"></td>
+				<td th:text="${client.getState()}"></td>
+			</tr>
+		</table>
+	</body>
+</html>
