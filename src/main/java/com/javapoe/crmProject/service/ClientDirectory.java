@@ -18,6 +18,10 @@ public class ClientDirectory {
 		return clientRepository.findAll();
 	}
 	
+	public List<Client> getAllClientsByCompany(String companyName){
+		return clientRepository.findAllByCompanyName(companyName);
+	}
+	
 	public Optional<Client> getOneClient(Long id) {
 		return clientRepository.findById(id);
 	}
