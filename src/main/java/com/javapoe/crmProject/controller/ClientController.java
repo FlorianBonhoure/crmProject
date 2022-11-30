@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -61,6 +62,15 @@ public class ClientController {
 			}
 		} else {
 			return ResponseEntity.badRequest().build();
+		}
+	}
+	
+	@PatchMapping("clients/{id}")
+	public ResponseEntity patchClient(@PathVariable("id") Long id, @RequestBody Client client) {
+		if(clientDirectory.patchClient(client, id)) {
+			return ResponseEntity.ok().build();
+		} else {
+			return ResponseEntity.notFound().build();
 		}
 	}
 }

@@ -128,6 +128,39 @@ public class Client {
 	public void setState(ClientState state) {
 		this.state = state;
 	}
+	
+	public void patch(Client client) {
+		if(client.companyName != null) {
+			this.companyName = client.companyName;
+		}
+		if(client.firstName != null) {
+			this.firstName = client.firstName;
+		}
+		if(client.lastName != null) {
+			this.lastName = client.lastName;
+		}
+		if(client.email != null) {
+			this.email = client.email;
+		}
+		if(client.phone != null) {
+			this.phone = client.phone;
+		}
+		if(client.address != null) {
+			this.address = client.address;
+		}
+		if(client.zipCode != null) {
+			this.zipCode = client.zipCode;
+		}
+		if(client.city != null) {
+			this.city = client.city;
+		}
+		if(client.country != null) {
+			this.country = client.country;
+		}
+		if(client.state != null) {
+			this.state = client.state;
+		}
+	}
 
 	@Override
 	public String toString() {

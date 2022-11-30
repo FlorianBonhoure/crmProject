@@ -41,4 +41,15 @@ public class ClientDirectory {
 		} 
 		return false;
 	}
+	
+	public boolean patchClient(Client client, Long id) {
+		Optional<Client> optionalClient = clientRepository.findById(id);
+		if(optionalClient.isPresent()) {
+			Client c = optionalClient.get();
+			c.patch(client);
+			clientRepository.save(c);
+			return true;
+		} 
+		return false;
+	}
 }
