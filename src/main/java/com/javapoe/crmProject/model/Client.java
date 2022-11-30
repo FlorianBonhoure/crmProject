@@ -21,14 +21,14 @@ public class Client {
 	private String zipCode;
 	private String city;
 	private String country;
-	private boolean state;
+	private ClientState state;
 	
 	public Client() {
 		
 	}
 	
 	public Client(String companyName, String firstName, String lastName, String email, String phone, String address,
-			String zipCode, String city, String country, boolean state) {
+			String zipCode, String city, String country, ClientState state) {
 		this.companyName = companyName;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -121,11 +121,11 @@ public class Client {
 		this.country = country;
 	}
 
-	public boolean isState() {
+	public ClientState getState() {
 		return state;
 	}
 
-	public void setState(boolean state) {
+	public void setState(ClientState state) {
 		this.state = state;
 	}
 
@@ -133,8 +133,7 @@ public class Client {
 	public String toString() {
 		return "Client [id=" + id + ", companyName=" + companyName + ", firstName=" + firstName + ", lastName="
 				+ lastName + ", email=" + email + ", phone=" + phone + ", address=" + address + ", zipCode=" + zipCode
-				+ ", city=" + city + ", country=" + country + ", state=" + state + "]";
+				+ ", city=" + city + ", country=" + country + ", state=" + state.name() + "]";
 	}
-	
-	
+
 }

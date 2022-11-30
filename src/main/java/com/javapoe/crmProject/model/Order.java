@@ -18,7 +18,7 @@ public class Order {
 	private String designation;
 	private int nbDays;
 	private float unitPrice;
-	private boolean state;
+	private OrderState state;
 	
 	@ManyToOne
 	private Client client;
@@ -27,7 +27,7 @@ public class Order {
 		
 	}
 	
-	public Order(String typePresta, String designation, int nbDays, float unitPrice, boolean state, Client client) {
+	public Order(String typePresta, String designation, int nbDays, float unitPrice, OrderState state, Client client) {
 		this.typePresta = typePresta;
 		this.designation = designation;
 		this.nbDays = nbDays;
@@ -76,11 +76,11 @@ public class Order {
 		this.unitPrice = unitPrice;
 	}
 
-	public boolean isState() {
+	public OrderState getState() {
 		return state;
 	}
 
-	public void setState(boolean state) {
+	public void setState(OrderState state) {
 		this.state = state;
 	}
 
@@ -96,9 +96,7 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", typePresta=" + typePresta + ", designation=" + designation + ", nbDays=" + nbDays
-				+ ", unitPrice=" + unitPrice + ", state=" + state + ", client=" + client + "]";
+				+ ", unitPrice=" + unitPrice + ", state=" + state.name() + ", client=" + client + "]";
 	}
-	
-	
 	
 }
